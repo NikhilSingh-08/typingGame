@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplayer Typing Game</title>
+</head>
+<body>
+    <h1>Multiplayer Typing Game</h1>
+    <div>
+        <label>Enter Lobby ID:</label>
+        <input type="text" id="lobbyIdInput">
+    </div>
+    <div>
+        <label>Enter Referral Code:</label>
+        <input type="text" id="referralCodeInput">
+    </div>
+    <button id="joinLobbyButton">Join Lobby</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js"></script>
+    <script>
+        const socket = io(); // Connect to the socket.io server
+
+        document.getElementById("joinLobbyButton").addEventListener("click", () => {
+            const lobbyId = document.getElementById("lobbyIdInput").value.trim();
+            const referralCode = document.getElementById("referralCodeInput").value.trim();
+
+            // Emit the "joinLobby" event to the server with the entered lobby ID and referral code
+            socket.emit("joinLobby", lobbyId, referralCode);
+        });
+
+        // Listen for the "lobbyCreated" event from the server
+        socket.on("lobbyCreated", (data) => {
+            const lobbyId = data.lobbyId;
+            const referralCode = data.referralCode;
+
+            // Show the lobby ID and referral code to the user
+            alert(`Lobby created!\nLobby ID: ${lobbyId}\nReferral Code: ${referralCode}`);
+        });
+
+        // Listen for the "playerJoined" event from the server
+        socket.on("playerJoined", (playerId) => {
+            // Notify the user that another player has joined the lobby
+            alert(`Another player with ID ${playerId} has joined the lobby!`);
+        });
+
+        // Listen for the "startGame" event from the server
+        socket.on("startGame", () => {
+            // Start the game here
+            alert("Game starting! Get ready to type!");
+
+            // You can navigate to the typing game page or start the game logic here
+            // For simplicity, we'll just show an alert indicating the game has started.
+        });
+
+        // Listen for the "lobbyJoinFailed" event from the server
+        socket.on("lobbyJoinFailed", () => {
+            // Notify the user that joining the lobby failed (e.g., lobby is full or referral code is incorrect)
+            alert("Failed to join the lobby. Please check the lobby ID and referral code.");
+        });
+    </script>
+</body>
+</html>
