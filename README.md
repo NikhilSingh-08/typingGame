@@ -15,29 +15,28 @@ Description : Speed Typing game application where players can practice and compe
              challenge.
          • In addition to the player's personal progress, they can also visualize other
               players' progress.
-         • On game end, the results (e.g., accuracy, typing speed and lobby rank of each
-              (player) of all the players in the lobby will be displayed.
+         • On game end, the results (e.g., accuracy, typing speed and lobby rank of each player) of all the players in the lobby will be displayed.
 # challenges
          I have listed down some design and architectural questions that I consider while
-           building my product, into three broad categories:
-         • Gameplay
+         building my project, into three broad categories:
+         • Gameplay:
              − How many players can play at once in a lobby?
              − What happens if all players finished before time?
              − What happens if required number of players are not filled fast enough into a
                 lobby?
              − Does the game start with limited players?
          • Session Management and Scalability:
-             − How are you creating lobbies on demand?
+             − How to creating lobbies on demand?
              − All the players of a session have abandoned it. How will the session
                termination happen in this scenario?
-             − How are you planning on handling large data sets of real-time data as the
+             − The Thorough planning on handling large data sets of real-time data as the
                number of live games being played on your application scales up?
          • Resiliency and Fault-Tolerance:
              − What happens to the multi-player session when one of the players
                loses their connection or crashes?
-             − How do you handle a player refreshing or re-opening their application midgame?
-         • User Experience
-             − Is your application intuitive for a first-time player to hop on and understand
+             − How to handle a player refreshing or re-opening their application midgame?
+         • User Experience :
+             − The application will be intuitive for a first-time player to hop on and understand
                the various game modes?
-             − How responsive is your application to player actions?
-             − Does the player need to enter his username every time?             
+             − The responsiveness of application to player actions?
+            
