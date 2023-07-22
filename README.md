@@ -34,7 +34,7 @@ Description : Speed Typing game application where players can practice and compe
          • Resiliency and Fault-Tolerance:
              − What happens to the multi-player session when one of the players
                loses their connection or crashes?
-             − How to handle a player refreshing or re-opening their application midgame?
+             − How to handle a player refreshing or re-opening their application mid game?
          • User Experience :
              − The application will be intuitive for a first-time player to hop on and understand
                the various game modes?
